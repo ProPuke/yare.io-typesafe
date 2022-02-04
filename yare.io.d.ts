@@ -84,7 +84,7 @@ interface Graphics {
 	rect(topLeft:Vector, bottomRight:Vector):void;
 }
 
-declare const memory: Record<string, any>;
+declare let memory: Record<string, any>;
 declare const spirits: Record<string, Spirit>;
 declare const my_spirits: Spirit[];
 declare const stars: Record<string, Star>;
