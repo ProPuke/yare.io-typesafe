@@ -66,10 +66,14 @@ declare interface Spirit extends Entity {
 	hp: 0|1;
 	move_speed: number; //might be a multiple of 20? starts at 1
 
+	set_mark(mark:string):void;
 	shout(message:string):void;
 	move(destination:Vector):void;
 	energize(target:Vector|Entity):void;
+	merge(target:Spirit):void;
 	divide():void;
+	jump(target:Vector):void;
+	explode():void;
 }
 
 interface Graphics {
