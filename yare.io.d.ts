@@ -1,20 +1,20 @@
 type Shape = 'circles'|'squares'|'triangles';
 type Vector = [number,number];
 
-declare interface Entity {
+declare class Entity {
 	readonly id: string;
 	readonly position: Vector;
 	readonly energy: number;
 	readonly energy_capacity: number;
 }
 
-declare interface Structure extends Entity {
+declare class Structure extends Entity {
 	readonly size: number;
 	readonly collision_radius: number;
 	readonly structure_type: 'base'|'outpost'|'star';
 }
 
-declare interface Base extends Structure {
+declare class Base extends Structure {
 	readonly structure_type: 'base';
 	readonly player_id: string;
 	readonly shape: Shape;
@@ -30,7 +30,7 @@ declare interface Base extends Structure {
 	readonly current_spirit_cost: number
 }
 
-declare interface Outpost extends Structure {
+declare class Outpost extends Structure {
 	readonly structure_type: 'outpost';
 	readonly control: string;
 	readonly range: number;
@@ -40,14 +40,14 @@ declare interface Outpost extends Structure {
 	};
 }
 
-declare interface Star extends Structure {
+declare class Star extends Structure {
 	readonly structure_type: 'star';
 	readonly last_energized: string;
 	readonly active_in: number; //?
 	readonly active_out: number; //?
 }
 
-declare interface Spirit extends Entity {
+declare class Spirit extends Entity {
 	readonly player_id: string;
 	readonly shape: Shape;
 	readonly size: number;
@@ -76,7 +76,7 @@ declare interface Spirit extends Entity {
 	explode():void;
 }
 
-interface Graphics {
+declare class Graphics {
 	set style(style:string);
 	set linewidth(width:number);
 	line(start:Vector, end:Vector):void;
@@ -84,23 +84,23 @@ interface Graphics {
 	rect(topLeft:Vector, bottomRight:Vector):void;
 }
 
-declare let memory: Record<string, any>;
-declare const spirits: Record<string, Spirit>;
-declare const my_spirits: Spirit[];
-declare const stars: Record<string, Star>;
-declare const star_a1c:Star;
-declare const star_p89:Star;
-declare const star_zxq:Star;
-declare const bases: Record<string, Base>;
-declare const outposts: Record<string, Outpost>;
-declare const outpost: Outpost;
-declare const outpost_mdo: Outpost;
-declare const this_player_id: string;
-declare const base: Base;
-declare const enemy_base: Base;
-declare const players: {
-	p1: string;
-	p2: string;
+declare var memory: Record<string, any>;
+declare readonly var spirits: Record<string, Spirit>;
+declare readonly var my_spirits: Spirit[];
+declare readonly var stars: Record<string, Star>;
+declare readonly var star_a1c:Star;
+declare readonly var star_p89:Star;
+declare readonly var star_zxq:Star;
+declare readonly var bases: Record<string, Base>;
+declare readonly var outposts: Record<string, Outpost>;
+declare readonly var outpost: Outpost;
+declare readonly var outpost_mdo: Outpost;
+declare readonly var this_player_id: string;
+declare readonly var base: Base;
+declare readonly var enemy_base: Base;
+declare readonly var players: {
+	readonly p1: string;
+	readonly p2: string;
 };
-declare const tick: number;
-declare const graphics: Graphics;
+declare readonly var tick: number;
+declare readonly var graphics: Graphics;
