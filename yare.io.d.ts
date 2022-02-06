@@ -69,7 +69,7 @@ declare interface Spirit extends Entity {
 	set_mark(mark:string):void;
 	shout(message:string):void;
 	move(destination:Vector):void;
-	energize(target:Vector|Entity):void;
+	energize(target:Entity|string):void;
 	merge(target:Spirit):void;
 	divide():void;
 	jump(target:Vector):void;
